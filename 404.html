@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Not Found</title>
+  <style>
+    /* Body and container styling */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #1e1e1e;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+      overflow: hidden;
+      position: relative;
+      user-select: none; /* Makes all text unselectable */
+    }
+
+  .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+
+
+    /* Glitch effect for main 404 text */
+    .glitch {
+      font-size: 5rem;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      color: #fff;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: glitch 1.5s infinite;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: '404 Not Found';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ff0044;
+      clip: rect(0, 0, 0, 0);
+      animation: glitchEffect 1.5s infinite;
+    }
+
+    .glitch::after {
+      background: #00ffdd;
+      clip: rect(2px, 0, 0, 0);
+      animation: glitchEffect 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+      }
+      50% {
+        transform: translate(-5px, -5px);
+      }
+      100% {
+        transform: translate(5px, 5px);
+      }
+    }
+
+    @keyframes glitchEffect {
+      0% {
+        clip: rect(0, 9000px, 0, 0);
+        transform: skew(0.39deg);
+      }
+      100% {
+        clip: rect(0, 9000px, 0, 0);
+        transform: skew(0.38deg);
+      }
+    }
+
+    /* Styling for Back to Home button */
+    .button {
+      background: #00ffdd;
+      color: #1e1e1e;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      margin-top: 30px;
+      border-radius: 10px;
+      transition: 0.3s;
+      user-select: none;
+    }
+
+    .button:hover {
+      background: #ff0044;
+      box-shadow: 0 0 20px rgba(0, 255, 221, 0.5);
+    }
+
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    /* Glitch effect for contact support message */
+    .support-message {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #fff;
+      position: relative;
+      animation: glitchText 500ms infinite;
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                   -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                   0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+      user-select: none;
+      width: 80%;
+      text-align: center !important;
+      justify-content: center;
+      display: flex;
+    }
+
+    .support-message span {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .support-message span:first-child {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); /* Top half */
+}
+
+.support-message span:last-child {
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%); /* Bottom half */
+}
+
+    @keyframes glitchText {
+      0% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                     -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                     -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+      }
+      100% {
+        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                     -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                     -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+      }
+    }
+
+    /* Bubble floating animation */
+    .bubble {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('https://raw.githubusercontent.com/EJXP/neutronium.github.io/assets/images/bubble.png');
+      background-size: cover;
+      border-radius: 50%;
+      pointer-events: all;
+      animation: floatUp 10s linear infinite;
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh);
+      }
+      100% {
+        transform: translateY(-20vh);
+      }
+    }
+
+    .bubble.pop {
+      background-image: url('https://raw.githubusercontent.com/EJXP/neutronium.github.io/assets/images/bubble_burst.png');
+      background-size: cover;
+      transform: scale(0);
+      animation: popAnimation 0.5s forwards;
+    }
+
+    @keyframes popAnimation {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="glitch">404 Not Found</div>
+    <button class="button" onclick="window.location.href = '/';">Back to Home</button>
+    <div class="support-message">
+      <span>Please contact support@ejxp.org if there is supposed to be a web page here.</span>
+      <span>Please contact support@ejxp.org if there is supposed to be a web page here.</span>
+    </div>
+  </div>
+
+  <script>
+    let bubbleInterval;
+
+    // Function to create a bubble element
+    function createBubble() {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.style.left = `${Math.random() * window.innerWidth}px`; // Random X position
+      bubble.style.animationDuration = `${Math.random() * 10 + 5}s`; // Random speed for floating
+      document.body.appendChild(bubble);
+
+      // Event listener for popping the bubble when clicked
+      bubble.addEventListener('click', function(e) {
+        // Remove the bubble immediately
+        bubble.remove();
+
+        // Create the burst image where the user clicked
+        const burst = document.createElement('div');
+        burst.classList.add('bubble', 'pop');
+        burst.style.left = `${e.clientX - 25}px`; // Position burst at the click point
+        burst.style.top = `${e.clientY - 25}px`;
+        document.body.appendChild(burst);
+
+        // Play the sound effect
+        const audio = new Audio('https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/assets/sounds/bubble_burst.mp3');
+        audio.play();
+
+        // Remove the burst image after the animation
+        setTimeout(() => {
+          burst.remove();
+        }, 500); // Match the pop animation duration
+      });
+    }
+
+    // Start the bubbles floating 5 seconds after the page loads
+    setTimeout(() => {
+      bubbleInterval = setInterval(createBubble, 1000); // Create a new bubble every second
+    }, 5000);
+  </script>
+</body>
+</html>
